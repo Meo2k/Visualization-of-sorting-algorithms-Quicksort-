@@ -1,0 +1,9 @@
+test/
+src/
+coding/
+new/*.dll
+new/*.o
+new/k.txt
+new/*.cpp
+new/*.exe
+!new/quicksort.cpp
