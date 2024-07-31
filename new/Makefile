@@ -1,4 +1,4 @@
-# Đặt tên cho file thực thi
+# Name the executable file
 TARGET = new
 
 # Đặt đường dẫn
@@ -7,30 +7,30 @@ INCDIR = $(SRCDIR)/include
 LIBDIR = $(SRCDIR)/lib
 NEWDIR = .
 
-# Các file mã nguồn và đối tượng
+# Source code files and objects
 SOURCES = $(NEWDIR)/quicksort.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
-# Lựa chọn trình biên dịch
+# Select compiler
 CXX = g++
 CXXFLAGS = -std=c++11 -I$(INCDIR)
 LDFLAGS = -L$(LIBDIR) -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
-# Mục tiêu mặc định
+# Default target
 all: $(TARGET)
 
-# Quy tắc để tạo file thực thi
+# Rules for creating executable files
 $(TARGET): $(OBJECTS)
 	$(CXX) $(OBJECTS) $(LDFLAGS) -o $(TARGET)
 
-# Quy tắc để biên dịch các file mã nguồn thành file đối tượng
+# Rules for compiling source files into object files
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Quy tắc dọn dẹp
+# Cleaning rules
 clean:
 	rm -f $(OBJECTS) $(TARGET)
 
-# Mục tiêu để biên dịch và chạy chương trình
+# The goal is to compile and run the program
 run: $(TARGET)
 	./$(TARGET)
